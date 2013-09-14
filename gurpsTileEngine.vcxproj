@@ -86,23 +86,41 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="EditorScreen.cpp" />
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="EnvironmentManager.cpp" />
+    <ClCompile Include="FileComponent.cpp" />
+    <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Rectangle.cpp" />
-    <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="SpriteManager.cpp" />
+    <ClCompile Include="Text.cpp" />
+    <ClCompile Include="TextField.cpp" />
+    <ClCompile Include="textManager.cpp" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TileType.cpp" />
+    <ClCompile Include="TileTypeManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="EditorScreen.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="EnvironmentManager.h" />
+    <ClInclude Include="FileComponent.h" />
+    <ClInclude Include="FontManager.h" />
     <ClInclude Include="GameScreen.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Screens.h" />
     <ClInclude Include="Shape.h" />
-    <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="SpriteManager.h" />
+    <ClInclude Include="Text.h" />
+    <ClInclude Include="TextField.h" />
+    <ClInclude Include="textManager.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="TileType.h" />
+    <ClInclude Include="TileTypeManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

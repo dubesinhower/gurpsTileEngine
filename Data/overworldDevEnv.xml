@@ -1,101 +1,169 @@
 <environment>
   <name>overworld dev</name>
+  <textureIndex>0</textureIndex>
+  <tileSize>32</tileSize>
   <tileTypes>
+    <type>
+      <name>black</name>
+      <mapIndicator>000</mapIndicator>
+      <texturePosition>
+        <x>0</x>
+        <y>0</y>
+      </texturePosition>
+      <logic>none</logic>
+    </type>
     <type>
       <name>grass</name>
       <mapIndicator>001</mapIndicator>
-      <texturePosition>0,0</texturePosition>
+      <texturePosition>
+        <x>1</x>
+        <y>0</y>
+      </texturePosition>
       <logic>none</logic>
     </type>
     <type>
       <name>dirt</name>
       <mapIndicator>002</mapIndicator>
-      <texturePosition>1,0</texturePosition>
+      <texturePosition>
+        <x>2</x>
+        <y>0</y>
+      </texturePosition>
       <logic>none</logic>
     </type>
     <type>
       <name>sand</name>
       <mapIndicator>003</mapIndicator>
-      <texturePosition>2,0</texturePosition>
+      <texturePosition>
+        <x>3</x>
+        <y>0</y>
+      </texturePosition>
       <logic>none</logic>
     </type>
     <type>
       <name>cliff</name>
       <mapIndicator>004</mapIndicator>
-      <texturePosition>3,0</texturePosition>
+      <texturePosition>
+        <x>4</x>
+        <y>0</y>
+      </texturePosition>
       <logic>jumpable</logic>
     </type>
     <type>
       <name>water</name>
       <mapIndicator>005</mapIndicator>
-      <texturePosition>4,0</texturePosition>
+      <texturePosition>
+        <x>5</x>
+        <y>0</y>
+      </texturePosition>
       <logic>water</logic>
     </type>
     <type>
-      <name>gass/dirt</name>
+      <name>grass/dirt</name>
       <mapIndicator>006</mapIndicator>
-      <texturePosition>5,0</texturePosition>
+      <texturePosition>
+        <x>6</x>
+        <y>0</y>
+      </texturePosition>
       <logic>angled,none,none</logic>
     </type>
     <type>
       <name>grass/sand</name>
       <mapIndicator>007</mapIndicator>
-      <texturePosition>6,0</texturePosition>
+      <texturePosition>
+        <x>7</x>
+        <y>0</y>
+      </texturePosition>
       <logic>angled,none,none</logic>
     </type>
     <type>
       <name>grass/cliff</name>
       <mapIndicator>008</mapIndicator>
-      <texturePosition>7,0</texturePosition>
+      <texturePosition>
+        <x>0</x>
+        <y>1</y>
+      </texturePosition>
       <logic>angled,none,jumpable</logic>
     </type>
     <type>
       <name>grass/water</name>
       <mapIndicator>009</mapIndicator>
-      <texturePosition>5,0</texturePosition>
+      <texturePosition>
+        <x>1</x>
+        <y>1</y>
+      </texturePosition>
       <logic>angled,none,water</logic>
     </type>
     <type>
       <name>dirt/sand</name>
       <mapIndicator>00A</mapIndicator>
-      <texturePosition>5,0</texturePosition>
+      <texturePosition>
+        <x>2</x>
+        <y>1</y>
+      </texturePosition>
       <logic>angled,none,none</logic>
     </type>
     <type>
       <name>dirt/cliff</name>
       <mapIndicator>00B</mapIndicator>
-      <texturePosition>5,0</texturePosition>
+      <texturePosition>
+        <x>3</x>
+        <y>1</y>
+      </texturePosition>
       <logic>angled,none,jumpable</logic>
     </type>
     <type>
       <name>dirt/water</name>
       <mapIndicator>00C</mapIndicator>
-      <texturePosition>5,0</texturePosition>
+      <texturePosition>
+        <x>4</x>
+        <y>1</y>
+      </texturePosition>
       <logic>angled,none,water</logic>
     </type>
     <type>
       <name>sand/cliff</name>
       <mapIndicator>00D</mapIndicator>
-      <texturePosition>5,0</texturePosition>
+      <texturePosition>
+        <x>5</x>
+        <y>1</y>
+      </texturePosition>
       <logic>angled,none,jumpable</logic>
     </type>
     <type>
       <name>sand/water</name>
       <mapIndicator>00E</mapIndicator>
-      <texturePosition>5,0</texturePosition>
+      <texturePosition>
+        <x>6</x>
+        <y>1</y>
+      </texturePosition>
       <logic>angled,none,water</logic>
     </type>
     <type>
       <name>cliff/water</name>
       <mapIndicator>00F</mapIndicator>
-      <texturePosition>5,0</texturePosition>
+      <texturePosition>
+        <x>7</x>
+        <y>1</y>
+      </texturePosition>
       <logic>angled,jumpable,water</logic>
     </type>
     <type>
       <name>brick</name>
       <mapIndicator>010</mapIndicator>
-      <texturePosition>7,1</texturePosition>
+      <texturePosition>
+        <x>0</x>
+        <y>2</y>
+      </texturePosition>
       <logic>solid</logic>
+    </type>
+    <type>
+      <name>stairs</name>
+      <mapIndicator>011</mapIndicator>
+      <texturePosition>
+        <x>1</x>
+        <y>2</y>
+      </texturePosition>
+      <logic>stairs</logic>
     </type>
   </tileTypes>
 </environment>

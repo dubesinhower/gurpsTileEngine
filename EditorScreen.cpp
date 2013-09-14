@@ -1,27 +1,37 @@
-#include "GameScreen.h"
+#include "EditorScreen.h"
 
-GameScreen::GameScreen(void)
+EditorScreen::EditorScreen(void)
 {
 
 }
 
-GameScreen::~GameScreen(void)
+EditorScreen::~EditorScreen(void)
 {
 
 }
 
-int GameScreen::run(sf::RenderWindow &window)
+int EditorScreen::run(sf::RenderWindow &window)
 {
-	//float viewSpeed = 1000.0f;
+	float viewSpeed = 500.0f;
 
 	//initialize deltaTime variable and clock
 	float deltaTime = 0.0f;
 	sf::Clock clock;
 
+	sf::View editorView;
+	sf::View guiView;
+
 	sf::Vector2f windowSize = (sf::Vector2f)window.getSize();
+	editorView.reset(sf::FloatRect(0, 0, windowSize.x, windowSize.y));
+	editorView.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
+	guiView.reset(sf::FloatRect(0, 0, windowSize.x, windowSize.y));
+	guiView.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
 
 	SpriteManager spriteManager;
+	FontManager fontManager;
 	EnvironmentManager environmentManager(spriteManager);
+
+	Text text(fontManager.getFont(0));
 
 	//screen loop starts
 	bool running = true;
@@ -47,6 +57,9 @@ int GameScreen::run(sf::RenderWindow &window)
 				case sf::Keyboard::Escape:
 					return (-1);
 					break;
+				case sf::Keyboard::F1:
+					editorView.reset(sf::FloatRect(0, 0, windowSize.x, windowSize.y));
+					break;
 				default:
 					break;
 				}
@@ -63,37 +76,41 @@ int GameScreen::run(sf::RenderWindow &window)
 		//event loop finished
 
 		//view scrolling
-	/*	if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		{
-			view.move(sf::Vector2f(0.0f, -viewSpeed*deltaTime));
+			editorView.move(sf::Vector2f(0.0f, -viewSpeed*deltaTime));
 		}
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
-			view.move(sf::Vector2f(0.0f, viewSpeed*deltaTime));
+			editorView.move(sf::Vector2f(0.0f, viewSpeed*deltaTime));
 		}
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		{
-			view.move(sf::Vector2f(-viewSpeed*deltaTime, 0.0f));
+			editorView.move(sf::Vector2f(-viewSpeed*deltaTime, 0.0f));
 		}
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
-			view.move(sf::Vector2f(viewSpeed*deltaTime, 0.0f));
+			editorView.move(sf::Vector2f(viewSpeed*deltaTime, 0.0f));
 		}
 
-		sf::Vector2f viewCenter = view.getCenter();
-		sf::Vector2f viewSize = view.getSize();
-		sf::Vector2f viewTopLeft(viewCenter.x - .5f * viewSize.x, viewCenter.y - .5f * viewSize.y);
-		sf::Vector2f viewBottomRight(viewCenter.x + .5f * viewSize.x, viewCenter.y + .5f * viewSize.y);*/
+		sf::Vector2f mapOffset = getViewTopLeftPosition(editorView);
+		std::string mapOffsetString = std::to_string((int)mapOffset.x) + "," + std::to_string((int)mapOffset.y);
+		text.setString(mapOffsetString);
 
-		//update the player (not necessary yet)
-		//player.update(deltaTime, level, mousePosition);
-
-		//draw objects
 		window.clear();
-		//window.setView(view);
+		window.setView(editorView);
 		environmentManager.draw(window);
+		window.setView(guiView);
+		text.draw(window);
 		window.display();
 	}
 
 	return (-1);
+}
+
+sf::Vector2f EditorScreen::getViewTopLeftPosition(sf::View view)
+{
+	sf::Vector2f viewCenter = view.getCenter();
+	sf::Vector2f viewSize = view.getSize();
+	return sf::Vector2f(viewCenter.x - (viewSize.x * .5f), viewCenter.y - (viewSize.y * .5f));
 }

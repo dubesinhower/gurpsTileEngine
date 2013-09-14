@@ -1,22 +1,24 @@
 #pragma once
 #include "SFML\Graphics.hpp"
+#include <boost\property_tree\xml_parser.hpp>
+#include <boost\property_tree\ptree.hpp>
 #include <string>
 #include <iostream>
 #include <vector>
-#include <fstream>
-#include <boost/algorithm/string.hpp>
+#include "SpriteManager.h"
+#include "Tile.h"
+#include "TileTypeManager.h"
+#include "FileComponent.h"
 
-
-class Environment
+class Environment : FileComponent
 {
 public:
-	Environment(std::string mapFileName, std::string xmlFileName, sf::Texture& texture);
+	Environment(SpriteManager& spriteManager, std::string mapFileName, std::string xmlFileName);
 	~Environment(void);
 
 	void draw(sf::RenderWindow& window);
 
 private:
-	std::vector<std::vector<std::string> > map;
-	std::vector<sf::Sprite> sprites;
-	bool loadMap(std::string mapFileName);
+	std::string name;
+	boost::ptr_vector<boost::ptr_vector<Tile> > tiles;
 };
